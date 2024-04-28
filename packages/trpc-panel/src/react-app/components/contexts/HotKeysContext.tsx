@@ -33,6 +33,8 @@ export function HotKeysContextProvider({ children }: { children: ReactNode }) {
       const ctrlOrMeta = e.ctrlKey || e.metaKey;
       if (e.key.toUpperCase() === "P" && ctrlOrMeta) {
         toggleSearch();
+      }else if (e.key === "Escape" && searchOpen) {
+        setSearchOpen(false);
       }
     },
     [toggleSearch]

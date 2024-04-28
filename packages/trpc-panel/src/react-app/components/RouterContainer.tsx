@@ -32,17 +32,19 @@ export function RouterContainer({
         {Object.entries(router.children).map(
           ([childName, routerOrProcedure]) => {
             return (
-              <div key={childName}>
+              <div key={childName} className="py-1">
                 {routerOrProcedure.nodeType == "router" ? (
                   <RouterContainer
                     name={childName}
                     router={routerOrProcedure}
                   />
                 ) : (
-                  <ProcedureForm
-                    name={childName}
-                    procedure={routerOrProcedure}
-                  />
+                  <div className="ms-5">
+                    <ProcedureForm
+                      name={childName}
+                      procedure={routerOrProcedure}
+                    />
+                  </div>
                 )}
               </div>
             );
